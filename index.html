@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerGuideIndia – Home</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* header / nav */
+    header {
+      background: #0b2a4a;
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    .logo i {
+      color: #facc15;
+      margin-right: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover, nav a.active {
+      color: white;
+      border-bottom-color: #facc15;
+    }
+
+    main {
+      flex: 1;
+      padding: 2.5rem 0;
+    }
+
+    .page-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      transition: 0.2s;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0b2a4a;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid #facc15;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #1e293b;
+    }
+
+    p, li {
+      color: #334155;
+      font-size: 1.05rem;
+    }
+
+    ul, ol {
+      padding-left: 1.8rem;
+      margin: 1rem 0;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f1f5f9;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      transition: 0.2s;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #0b2a4a;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .contact-item a, .contact-item span {
+      color: #0b2a4a;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      background: #e2e8f0;
+    }
+
+    .address-block {
+      background: #f1f5f9;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      margin: 1.5rem 0;
+      border-left: 6px solid #facc15;
+    }
+
+    .address-block i {
+      margin-right: 12px;
+      color: #0b2a4a;
+      width: 1.8rem;
+    }
+
+    .policy-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .policy-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e9edf2;
+      display: flex;
+      gap: 10px;
+    }
+    .policy-list li i {
+      color: #facc15;
+      width: 1.5rem;
+      margin-top: 3px;
+    }
+
+    .footer {
+      background: #0b2a4a;
+      color: #cbd5e1;
+      padding: 1.8rem 0;
+      margin-top: 1.5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      text-align: center;
+    }
+
+    .footer-content .copy {
+      font-size: 0.95rem;
+    }
+
+    .footer-content i {
+      color: #facc15;
+      margin: 0 4px;
+    }
+
+    .footer-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 400;
+    }
+
+    .footer-links a:hover {
+      color: #facc15;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .header-flex {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-card {
+        padding: 1.8rem 1rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-item {
+        border-radius: 30px;
+        padding: 0.8rem 1rem;
+        flex-wrap: wrap;
+      }
+      .logo h1 {
+        font-size: 1.4rem;
+      }
+    }
+
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+
+    .btn-link {
+      display: inline-block;
+      background: #0b2a4a;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+      border: 2px solid #0b2a4a;
+    }
+    .btn-link:hover {
+      background: #facc15;
+      color: #0b2a4a;
+      border-color: #facc15;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1.2rem 0;
+    }
+    .badge-list span {
+      background: #eef2f6;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #0b2a4a;
+    }
+    .mission-box {
+      background: #f1f5f9;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      margin: 1.8rem 0;
+      border-left: 6px solid #facc15;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <h1><i class="fas fa-compass"></i> CareerGuideIndia</h1>
+      </div>
+      <nav>
+        <a href="#" class="active" data-page="home"><i class="fas fa-home"></i> Home</a>
+        <a href="#" data-page="privacy"><i class="fas fa-shield-alt"></i> Privacy</a>
+        <a href="#" data-page="terms"><i class="fas fa-file-contract"></i> Terms</a>
+        <a href="#" data-page="contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME PAGE with the detailed description -->
+    <div id="home" class="page active">
+      <div class="page-card">
+        <h2><i class="fas fa-flag-checkered" style="color:#facc15; margin-right:12px;"></i> Career Guide India</h2>
+        <p style="font-size:1.2rem; font-weight:400; color:#1e293b;">Trusted education & admission guidance platform for UG & PG courses in Bangalore.</p>
+        
+        <!-- full description -->
+        <div style="margin: 1.5rem 0; background: #f8fafc; padding: 1.5rem 1.8rem; border-radius: 20px;">
+          <p><strong>Career Guide India</strong> is a trusted education and admission guidance platform helping students secure admission to top colleges in Bangalore for Undergraduate (UG) and Postgraduate (PG) courses. We provide expert career counseling, personalized college selection, admission assistance, and complete guidance throughout the enrollment process.</p>
+          <p style="margin-top: 1rem;">Whether you're looking for courses in Engineering, Management, Commerce, Arts, Science, Computer Applications, Nursing, Pharmacy, or other professional programs, our experienced counselors help you choose the right path based on your academic background, interests, and career goals.</p>
+        </div>
+
+        <div class="badge-list">
+          <span><i class="fas fa-graduation-cap"></i> Engineering</span>
+          <span><i class="fas fa-chart-line"></i> Management</span>
+          <span><i class="fas fa-coins"></i> Commerce</span>
+          <span><i class="fas fa-palette"></i> Arts</span>
+          <span><i class="fas fa-flask"></i> Science</span>
+          <span><i class="fas fa-laptop-code"></i> Computer Applications</span>
+          <span><i class="fas fa-user-md"></i> Nursing</span>
+          <span><i class="fas fa-capsules"></i> Pharmacy</span>
+          <span><i class="fas fa-briefcase"></i> Professional Programs</span>
+        </div>
+
+        <div class="mission-box">
+          <i class="fas fa-bullseye" style="color:#facc15; font-size:1.8rem; margin-right:10px;"></i>
+          <strong>Our Mission:</strong> To simplify the college admission process with transparent, reliable, and student-focused support, empowering every student to build a successful future.
+        </div>
+
+        <div style="background:#eef2f6; padding:1.2rem 1.8rem; border-radius:20px; margin: 1.8rem 0;">
+          <p><i class="fas fa-map-pin" style="color:#0b2a4a; width:2rem;"></i> <strong>📍 Location:</strong> Rajarajeshwarinagar (RR Nagar) & Kenchanahalli, Bengaluru South Taluk, Bengaluru Urban, Karnataka – <strong>560098</strong></p>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:space-between; margin:1.5rem 0;">
+          <div><i class="fas fa-envelope" style="color:#0b2a4a; width:2rem;"></i> <strong>Email:</strong> <a href="mailto:Sanojdlove@gmail.com" style="color:#0b2a4a;">Sanojdlove@gmail.com</a></div>
+          <div><i class="fas fa-phone-alt" style="color:#0b2a4a; width:2rem;"></i> <strong>Phone:</strong> <a href="tel:+919691545294" style="color:#0b2a4a;">9691545294</a></div>
+        </div>
+
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#" class="btn-link" data-page="contact"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+          <a href="#" class="btn-link" style="background:#facc15; color:#0b2a4a; border-color:#facc15;" data-page="privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY PAGE -->
+    <div id="privacy" class="page">
+      <div class="page-card">
+        <h2><i class="fas fa-shield-alt" style="margin-right:12px; color:#0b2a4a;"></i> Privacy Policy</h2>
+        <p><strong>Last updated:</strong> July 2026</p>
+        <p>CareerGuideIndia ("we", "our", "us") respects your privacy. This policy explains how we collect, use, and protect your personal information.</p>
+        
+        <h3><i class="fas fa-database" style="color:#facc15; margin-right:10px;"></i> Information We Collect</h3>
+        <ul class="policy-list">
+          <li><i class="fas fa-check-circle"></i> Name, email address, phone number, and location details you provide.</li>
+          <li><i class="fas fa-check-circle"></i> Data from career assessment tests and counseling sessions.</li>
+          <li><i class="fas fa-check-circle"></i> Website usage analytics to improve our services.</li>
+        </ul>
+
+        <h3><i class="fas fa-lock" style="color:#facc15; margin-right:10px;"></i> How We Use Your Data</h3>
+        <ul class="policy-list">
+          <li><i class="fas fa-chevron-right"></i> To provide career guidance and personalized recommendations.</li>
+          <li><i class="fas fa-chevron-right"></i> To communicate with you about services, offers, and updates.</li>
+          <li><i class="fas fa-chevron-right"></i> To improve our website and counseling methodologies.</li>
+        </ul>
+
+        <h3><i class="fas fa-user-shield" style="color:#facc15; margin-right:10px;"></i> Data Protection</h3>
+        <p>We implement security measures to protect your data. However, no online system is 100% secure. We retain your information only as long as necessary.</p>
+        <p><strong>Contact:</strong> For any privacy concerns, email us at <a href="mailto:Sanojdlove@gmail.com">Sanojdlove@gmail.com</a> or call 9691545294.</p>
+        <div style="margin-top:1.8rem; background:#f1f5f9; padding:1rem 1.8rem; border-radius:30px;">
+          <i class="fas fa-map-marker-alt" style="color:#0b2a4a;"></i> CareerGuideIndia, RR Nagar, Bengaluru South – 560098
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS PAGE -->
+    <div id="terms" class="page">
+      <div class="page-card">
+        <h2><i class="fas fa-file-contract" style="margin-right:12px; color:#0b2a4a;"></i> Terms & Conditions</h2>
+        <p><strong>Effective:</strong> July 2026</p>
+        <p>By using the CareerGuideIndia website and services, you agree to the following terms.</p>
+
+        <h3><i class="fas fa-handshake" style="color:#facc15; margin-right:10px;"></i> Use of Services</h3>
+        <ul>
+          <li>All career guidance and counseling sessions are provided on a best-effort basis.</li>
+          <li>Users must provide accurate information for effective counseling.</li>
+          <li>We reserve the right to modify or discontinue services without prior notice.</li>
+        </ul>
+
+        <h3><i class="fas fa-copyright" style="color:#facc15; margin-right:10px;"></i> Intellectual Property</h3>
+        <ul>
+          <li>All content, logos, and materials on this site are owned by CareerGuideIndia.</li>
+          <li>Unauthorized reproduction or distribution is prohibited.</li>
+        </ul>
+
+        <h3><i class="fas fa-gavel" style="color:#facc15; margin-right:10px;"></i> Limitation of Liability</h3>
+        <ul>
+          <li>CareerGuideIndia is not liable for any indirect, incidental, or consequential damages.</li>
+          <li>We do not guarantee specific career outcomes or job placements.</li>
+        </ul>
+
+        <h3><i class="fas fa-address-card" style="color:#facc15; margin-right:10px;"></i> Contact for Terms</h3>
+        <p>For questions about these terms, please reach out to us at <strong>9691545294</strong> or <a href="mailto:Sanojdlove@gmail.com">Sanojdlove@gmail.com</a>.</p>
+        <p style="margin-top:1.2rem;"><i class="fas fa-building" style="color:#0b2a4a;"></i> CareerGuideIndia, Rajarajeshwarinagar, Bengaluru South, Karnataka – 560098</p>
+      </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+      <div class="page-card">
+        <h2><i class="fas fa-address-book" style="margin-right:12px; color:#0b2a4a;"></i> Contact Us</h2>
+        <p>We’d love to hear from you. Reach out via any of the channels below.</p>
+
+        <div class="contact-grid">
+          <div class="contact-item"><i class="fas fa-user"></i> <span><strong>Full Name:</strong> CareerGuideIndia</span></div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:Sanojdlove@gmail.com">Sanojdlove@gmail.com</a></div>
+          <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+919691545294">9691545294</a></div>
+          <div class="contact-item"><i class="fas fa-building"></i> <span>CareerGuideIndia</span></div>
+        </div>
+
+        <div class="address-block">
+          <p><i class="fas fa-map-marker-alt fa-fw"></i> <strong>📍 Office Location:</strong> Rajarajeshwarinagar (RR Nagar) & Kenchanahalli, Bengaluru South Taluk, Bengaluru Urban District, Karnataka.</p>
+          <p><i class="fas fa-map-pin fa-fw"></i> <strong>Pincode:</strong> 560098</p>
+        </div>
+
+        <div style="background:#f1f5f9; padding:1.2rem 1.8rem; border-radius:20px; margin-top:1.5rem;">
+          <p><i class="fas fa-clock" style="color:#0b2a4a;"></i> <strong>Office hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM (IST)</p>
+          <p><i class="fas fa-globe"></i> <strong>Website:</strong> careerguideindia (this site)</p>
+        </div>
+
+        <p style="margin-top:2rem;"><i class="fas fa-info-circle" style="color:#facc15;"></i> For career counseling appointments, please call or email us. We respond within 24 hours.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="#" data-page="home">Home</a>
+        <a href="#" data-page="privacy">Privacy</a>
+        <a href="#" data-page="terms">Terms</a>
+        <a href="#" data-page="contact">Contact</a>
+      </div>
+      <div class="copy">
+        <i class="fas fa-copyright"></i> 2026 CareerGuideIndia – All rights reserved. 
+        <span style="display:inline-block; margin-left:8px;">📍 RR Nagar, Bengaluru South – 560098</span>
+      </div>
+      <div style="font-size:0.9rem; opacity:0.9;">
+        <i class="fas fa-envelope"></i> Sanojdlove@gmail.com · <i class="fas fa-phone-alt"></i> 9691545294
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const navLinks = document.querySelectorAll('nav a[data-page]');
+      const pages = {
+        home: document.getElementById('home'),
+        privacy: document.getElementById('privacy'),
+        terms: document.getElementById('terms'),
+        contact: document.getElementById('contact')
+      };
+
+      const btnLinks = document.querySelectorAll('.btn-link[data-page]');
+
+      function showPage(pageId) {
+        Object.keys(pages).forEach(key => {
+          pages[key].classList.remove('active');
+        });
+        if (pages[pageId]) {
+          pages[pageId].classList.add('active');
+        }
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-page') === pageId) {
+            link.classList.add('active');
+          }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          if (page) showPage(page);
+        });
+      });
+
+      btnLinks.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          if (page) showPage(page);
+        });
+      });
+
+      const footerLinks = document.querySelectorAll('.footer-links a[data-page]');
+      footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          if (page) showPage(page);
+        });
+      });
+
+      document.querySelectorAll('.page-card a[data-page]').forEach(a => {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          if (page) showPage(page);
+        });
+      });
+
+      if (!window.location.hash) {
+        showPage('home');
+      }
+
+      window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && pages[hash]) {
+          showPage(hash);
+        }
+      });
+
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && pages[hash]) {
+          showPage(hash);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
